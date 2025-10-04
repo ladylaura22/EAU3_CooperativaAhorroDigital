@@ -14,11 +14,12 @@ import java.util.Scanner;
 public class Main {
     private static final Scanner consola = new Scanner(System.in);
     private static final GestorClientes gestor = GestorClientes.getInstance();
-    private static final ReporteServicio reportes = new ReporteServicio();
+    private static ReporteServicio reportes;
 
     public static void main(String[] args) {
         System.out.println("*** BIENVENIDO A COOPERATIVA DIGITAL ***");
         registrarClientesIniciales();
+        reportes = new ReporteServicio(gestor.obtenerClientes());
         mostrarMenuPrincipal();
     }
 
